@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barra de Progresso de Leitura</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .progress-bar-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: #eee;
+      z-index: 9999;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: #007bff;
+      transition: width 0.1s linear;
+    }
+    .content {
+      padding: 24px;
+      margin-top: 12px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.2em;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+  <div class="content">
+    <h1>Exemplo de Página Longa</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque. Mauris euismod, nisl eget aliquam ultricies, nunc nisl aliquam nunc, eget aliquam massa nisl quis neque.</p>
+  </div>
+  <script>
+    function updateProgressBar() {
+      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+      const totalScrollable = scrollHeight - clientHeight;
+      const scrolled = (scrollTop / totalScrollable) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    }
+    window.addEventListener('scroll', updateProgressBar);
+    window.addEventListener('resize', updateProgressBar);
+    document.addEventListener('DOMContentLoaded', updateProgressBar);
+  </script>
+</body>
+</html>
